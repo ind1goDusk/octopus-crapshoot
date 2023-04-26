@@ -1,0 +1,15 @@
+{
+  "name": "c2adams101/328/diner",
+  "authors": [
+    {
+      "name": "Dahia Adams",
+      "email": "adams.dahlia@students.greenriver.edu",
+
+      "name": "David Kurilla",
+      "email": "kurilla.david@students.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
