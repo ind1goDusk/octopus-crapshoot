@@ -5,7 +5,7 @@ class SuperUser extends User
 
     private string $_email;
 
-    function __construct($username, $password, $email)
+    function __construct(string $username, string $password, string $email)
     {
         parent::__construct($username, $password);
         parent::setIsSuperUser(true);
@@ -17,7 +17,7 @@ class SuperUser extends User
         return $this->_email;
     }
 
-    function setEmail($email): void
+    function setEmail(string $email): void
     {
         $this->_email = $email;
     }
