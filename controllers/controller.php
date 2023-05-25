@@ -16,7 +16,8 @@ class Controller
 
     function game(): void
     {
-
+        $view = new Template();
+        $view->render('views/game.html');
     }
 
 }
