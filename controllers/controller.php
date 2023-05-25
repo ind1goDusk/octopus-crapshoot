@@ -7,4 +7,16 @@
 class Controller
 {
 
+    private Base $_f3;
+
+    function __construct(Base $f3)
+    {
+        $this->_f3 = $f3;
+    }
+
+    function game(): void
+    {
+
+    }
+
 }
