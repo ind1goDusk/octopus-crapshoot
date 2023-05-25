@@ -29,4 +29,6 @@ $f3 -> route('GET /how-to-play', function(){
     echo $view->render('views/tutorial.html');
 });
 
+
+
 $f3->run();
