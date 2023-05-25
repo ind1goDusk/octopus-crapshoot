@@ -20,4 +20,9 @@ class Controller
         $view->render('views/game.html');
     }
 
+    function login(): void
+    {
+        //TODO
+    }
+
 }
