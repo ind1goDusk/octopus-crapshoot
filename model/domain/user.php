@@ -39,6 +39,16 @@ class User
      * This method sets the username of the user.
      * @param string $username the username of the user
      */
+
+    // Function to validate login credentials
+    function validateLogin($username, $password) {
+        $conn = new PDO("mysql:host=localhost;dbname=database_name", "your_username", "your_password");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     function setUsername(string $username): void
     {
         $this->_username = $username;

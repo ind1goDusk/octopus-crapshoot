@@ -7,7 +7,9 @@ error_reporting(E_ALL);
 //require autoload
 require_once('vendor/autoload.php');
 
+//Create instance of Controller and Base
 $f3 = Base::instance();
+$controller = new Controller($f3);
 
 //define default route
 $f3 -> route('GET /', function(){
