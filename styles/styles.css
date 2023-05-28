@@ -29,3 +29,62 @@ html, body {
     font-weight: bold;
     background-color: #cccccc;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+}
+.scene {
+    perspective: 1000px;
+}
+.dice {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: roll-animation 2s ease-out;
+    animation-fill-mode: forwards;
+    color: blue;
+}
+.side {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 48px;
+    line-height: 80px;
+    backface-visibility: hidden;
+    background-color: darkred;
+}
+.side.front {
+    transform: translateZ(40px);
+}
+.side.back {
+    transform: rotateY(180deg) translateZ(40px);
+}
+.side.top {
+    transform: rotateX(-90deg) translateZ(40px);
+}
+.side.bottom {
+    transform: rotateX(90deg) translateZ(40px);
+}
+.side.left {
+    transform: rotateY(-90deg) translateZ(40px);
+}
+.side.right {
+    transform: rotateY(90deg) translateZ(40px);
+}
+
+@keyframes roll-animation {
+    0% {
+        transform: translateZ(0) rotateX(0) rotateY(0);
+    }
+    100% {
+        transform: translateZ(-200px) rotateX(720deg) rotateY(720deg);
+    }
+}
