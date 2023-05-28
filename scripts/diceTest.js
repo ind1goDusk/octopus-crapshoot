@@ -1,7 +1,7 @@
 //Variables
 let score = 0;
 let highScore = 0;
-let tag = document.getElementById("numbers");
+let tag = document.getElementById("banner");
 let scoreDisplay = document.getElementById("score");
 let highScoreDisplay = document.getElementById("highscore");
 
@@ -11,8 +11,7 @@ var sides1 = dice1.getElementsByClassName("side");
 var sides2 = dice2.getElementsByClassName("side");
 var result = document.getElementById("result");
 
-//Set Score Display to Empty String
-scoreDisplay.innerText = "";
+
 
 //Roll Dice Function
 /*
@@ -52,6 +51,9 @@ function rollDice(){
 
 
 function rollDice() {
+    //Set Score Display to Empty String
+    tag.innerText = "";
+
     // Disable the button during the animation
     var button = document.querySelector("button");
     button.disabled = true;
@@ -83,7 +85,30 @@ function rollDice() {
 
         // Update the result with the rolled numbers
         result.innerText = "Results: " + roll1 + " & " + roll2;
+
+        //Determine Win or Loose
+        let total = roll1+roll2;
+        if(total === 7 || total === 11){
+
+            console.log("You lose!");
+            console.log("Final score: " + score);
+            tag.classList.add("text-danger");
+            tag.innerText="You Lose!";
+            scoreDisplay.innerText = 'Final Score: ' + score;
+            score = 0;
+        } else {
+
+            score++;
+            scoreDisplay.innerText = `Score: ${score}`;
+            console.log(score);
+        }
+
+
+
     }, 2000); // Set the timeout to match the animation duration
+
+
+
 }
 
 
