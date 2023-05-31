@@ -50,7 +50,7 @@ function rollDice(){
 */
 
 
-function rollDice() {
+function rollDice(doubleDown) {
     //Set Score Display to Empty String
     tag.innerText = "";
 
@@ -88,7 +88,24 @@ function rollDice() {
 
         //Determine Win or Loose
         let total = roll1+roll2;
-        if(total === 7 || total === 11){
+
+        //check if player doubled down
+        if(doubleDown){
+            let badScores = new Set([2,7,11,12]);
+            if(badScores.has(total)){
+                tag.classList.add("text-danger");
+                tag.innerText="You Lose!";
+                scoreDisplay.innerText = 'Final Score: ' + score;
+                score = 0;
+            } else {
+                score += total;
+                scoreDisplay.innerText= `Score: ${score}`;
+
+            }
+
+        }
+        //otherwise, roll regularly
+        else if(total === 7 || total === 11){
 
             console.log("You lose!");
             console.log("Final score: " + score);
@@ -104,13 +121,19 @@ function rollDice() {
         }
 
 
+        //check if the player
+
+
 
     }, 2000); // Set the timeout to match the animation duration
 
 
-
 }
 
+
+function bet(wager, roll1, roll2){
+    return roll1 === wager || roll2 === wager;
+}
 
 
 //Fold Function
