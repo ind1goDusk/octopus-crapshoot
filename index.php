@@ -41,6 +41,11 @@ $f3 -> route('GET|POST /login', function($f3){
             $GLOBALS['controller']->hiveGet($username);
             $GLOBALS['controller']->hiveGet($password);
 
+            $userData = array($username, $password);
+
+            $cargo = $GLOBALS['controller']->packCargo($userData);
+            $GLOBALS['controller']->shipCargo($cargo);
+
         } else {
             $f3->set('errors[username]', 'Invalid user name!');
             echo $f3->get('errors[username]');

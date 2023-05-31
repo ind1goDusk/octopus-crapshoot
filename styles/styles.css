@@ -4,7 +4,7 @@ body {
     font-weight: bold;
 
 }
-.container-fluid{
+.tableContainer{
     background-image: url("../images/GreenTable.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -93,4 +93,47 @@ html, body {
     100% {
         transform: translateZ(-200px) rotateX(720deg) rotateY(720deg);
     }
+}
+.login{
+    background: black;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #3d3c3c;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form input {
+    height: 35px;
+    outline: none;
+    border: 2px solid orange;
+
+    padding: 20px 10px;
+    border-radius: 5px;
+    transition: .5s;
+    color: white;
+    font-size: 20px;
+}
+
+.form input:focus {
+    background: orange;
+}
+
+.form button {
+    width: 100%;
+    color: white;
+    transition: .5s;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    height: 45px;
+    border-radius: 5px;
+    background: orange;
+    align-self: flex-end;
 }
