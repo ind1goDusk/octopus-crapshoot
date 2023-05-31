@@ -44,4 +44,27 @@ class Controller
         $view = new Template();
         echo $view->render('views/tutorial.html');
     }
+
+    /**
+     * This method routes to the shop view.
+     */
+    function shop(): void
+    {
+        $view = new Template();
+        echo $view->render('views/shop.html');
+    }
+
+    /**
+     * This method routes to the login success view.
+     */
+    function success(): void
+    {
+        $view = new Template();
+        echo $view->render('views/success.html');
+    }
+
+    function hiveGet(string $data): void
+    {
+        $this->_f3->get('SESSION.' . $data);
+    }
 }

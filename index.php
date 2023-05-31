@@ -16,7 +16,6 @@ $f3 -> route('GET /', function() {
     // echo '<h1>Hello World!</h1>';
     //display view page
     $GLOBALS['controller']->game();
-
 });
 
 //login route
@@ -38,18 +37,30 @@ $f3 -> route('GET|POST /login', function($f3){
         if(Validations::validateUsername($username)) {
             $f3->set('SESSION.username', $username);
             $f3->set('SESSION.password', $password);
+
+            $GLOBALS['controller']->hiveGet($username);
+            $GLOBALS['controller']->hiveGet($password);
+
         } else {
             $f3->set('errors[username]', 'Invalid user name!');
             echo $f3->get('errors[username]');
         }
 
         if(empty($f3->get("errors"))) {
-            $f3->reroute('../octopus-crapshoot/');
+            $f3->reroute('/success');
         }
 
     }
 
     $GLOBALS['controller']->login();
+});
+
+$f3->route('GET /shop', function() {
+
+});
+
+$f3->route('GET /success', function() {
+    $GLOBALS['controller']->success();
 });
 
 //home route
