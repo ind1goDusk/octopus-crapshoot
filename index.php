@@ -56,7 +56,7 @@ $f3 -> route('GET|POST /login', function($f3){
 });
 
 $f3->route('GET /shop', function() {
-
+    $GLOBALS['controller']->shop();
 });
 
 $f3->route('GET /success', function() {
