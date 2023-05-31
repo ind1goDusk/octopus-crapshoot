@@ -121,7 +121,7 @@ function rollDice(doubleDown) {
         }
 
 
-        //check if the player
+
 
 
 
@@ -131,9 +131,7 @@ function rollDice(doubleDown) {
 }
 
 
-function bet(wager, roll1, roll2){
-    return roll1 === wager || roll2 === wager;
-}
+
 
 
 //Fold Function
