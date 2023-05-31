@@ -63,8 +63,27 @@ class Controller
         echo $view->render('views/success.html');
     }
 
+    /**
+     * This method gets data from the F3 hive.
+     * @param string $data
+     */
     function hiveGet(string $data): void
     {
         $this->_f3->get('SESSION.' . $data);
+    }
+
+    /**
+     * This method creates a Cargo object and ships it to datalayer.
+     * @param array $data the data in the Cargo.
+     */
+    function packCargo(array $data): Cargo
+    {
+        $cargo = new Cargo($data);
+        return $cargo;
+    }
+
+    private function shipCargo($cargo): void
+    {
+        Datalayer::unpackCargo($cargo);
     }
 }
