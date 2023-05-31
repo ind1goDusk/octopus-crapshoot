@@ -12,25 +12,60 @@ $f3 = Base::instance();
 $controller = new Controller($f3);
 
 //define default route
-$f3 -> route('GET /', function(){
+$f3 -> route('GET /', function() {
     // echo '<h1>Hello World!</h1>';
     //display view page
-    $view = new Template();
-    echo $view->render('views/game.html');
+    $GLOBALS['controller']->game();
 });
 
 //login route
-$f3 -> route('GET /login', function(){
-        $view = new Template();
-    echo $view->render('views/login.html');
+$f3 -> route('GET|POST /login', function($f3){
+
+    $username = "";
+    $password = "";
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        if(isset($_POST['username'])) {
+            $username = $_POST['username'];
+        }
+
+        if(isset($_POST['password'])) {
+            $password = $_POST['password'];
+        }
+
+        if(Validations::validateUsername($username)) {
+            $f3->set('SESSION.username', $username);
+            $f3->set('SESSION.password', $password);
+
+            $GLOBALS['controller']->hiveGet($username);
+            $GLOBALS['controller']->hiveGet($password);
+
+        } else {
+            $f3->set('errors[username]', 'Invalid user name!');
+            echo $f3->get('errors[username]');
+        }
+
+        if(empty($f3->get("errors"))) {
+            $f3->reroute('/success');
+        }
+
+    }
+
+    $GLOBALS['controller']->login();
+});
+
+$f3->route('GET /shop', function() {
+
+});
+
+$f3->route('GET /success', function() {
+    $GLOBALS['controller']->success();
 });
 
 //home route
 $f3 -> route('GET /how-to-play', function(){
-    $view = new Template();
-    echo $view->render('views/tutorial.html');
+    $GLOBALS['controller']->howToPlay();
 });
-
-
 
 $f3->run();
