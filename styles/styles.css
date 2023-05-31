@@ -1,11 +1,18 @@
-body{
-    background: url("../images/istockphoto-672556284-1024x1024.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto;
+body {
     width: 100%;
     height: 100%;
+    font-weight: bold;
+
 }
+.container-fluid{
+    background-image: url("../images/GreenTable.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: solid 35px saddlebrown;
+
+}
+
 
 
 html, body {
@@ -47,37 +54,36 @@ html, body {
     transform-style: preserve-3d;
     animation: roll-animation 2s ease-out;
     animation-fill-mode: forwards;
-    color: blue;
+    color: black;
 }
 .side {
     position: absolute;
     width: 80px;
     height: 80px;
-    background-color: white;
     border: 1px solid black;
     text-align: center;
     font-size: 48px;
     line-height: 80px;
     backface-visibility: hidden;
-    background-color: darkred;
+    background-color: #FFB81C;
 }
 .side.front {
-    transform: translateZ(40px);
+    transform: translateZ(80px);
 }
 .side.back {
-    transform: rotateY(180deg) translateZ(40px);
+    transform: rotateY(180deg) translateZ(80px);
 }
 .side.top {
-    transform: rotateX(-90deg) translateZ(40px);
+    transform: rotateX(-90deg) translateZ(80px);
 }
 .side.bottom {
-    transform: rotateX(90deg) translateZ(40px);
+    transform: rotateX(90deg) translateZ(80px);
 }
 .side.left {
-    transform: rotateY(-90deg) translateZ(40px);
+    transform: rotateY(-90deg) translateZ(80px);
 }
 .side.right {
-    transform: rotateY(90deg) translateZ(40px);
+    transform: rotateY(90deg) translateZ(80px);
 }
 
 @keyframes roll-animation {
