@@ -82,7 +82,7 @@ class Controller
         return $cargo;
     }
 
-    private function shipCargo($cargo): void
+    function shipCargo($cargo): void
     {
         Datalayer::unpackCargo($cargo);
     }
