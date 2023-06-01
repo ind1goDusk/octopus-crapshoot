@@ -13,7 +13,7 @@ class Datalayer
     {
         $data = array();
 
-        for ($i = 0; i < count($cargo); i++) {
+        for ($i = 0; $i < count($cargo); $i++) {
             $data[$i] = $cargo[$i];
         }
     }
