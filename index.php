@@ -57,6 +57,8 @@ $f3 -> route('GET|POST /login', function($f3){
 
     }
 
+
+
     $GLOBALS['controller']->login();
 });
 
@@ -71,6 +73,10 @@ $f3->route('GET /success', function() {
 //home route
 $f3 -> route('GET /how-to-play', function(){
     $GLOBALS['controller']->howToPlay();
+});
+//register route
+$f3 -> route('GET /register', function(){
+    $GLOBALS['controller']->register();
 });
 
 $f3->run();

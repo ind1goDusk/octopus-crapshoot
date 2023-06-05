@@ -71,6 +71,14 @@ class Controller
     {
         $this->_f3->get('SESSION.' . $data);
     }
+    /**
+     * This method routes to the register view.
+     */
+    function register(): void
+    {
+        $view = new Template();
+        echo $view->render('views/signUp.html');
+    }
 
     /**
      * This method creates a Cargo object and ships it to datalayer.
