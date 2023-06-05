@@ -23,7 +23,7 @@ class Datalayer
         }
     }
 
-    function unpackCargo($cargo): array
+    function unpackCargo(Cargo $cargo): array
     {
         $this->_data = array();
 
@@ -32,6 +32,20 @@ class Datalayer
         }
 
         return $this->_data;
+    }
+
+    /**
+     * Method creates a user
+     * @param Cargo $cargo
+     * @return void
+     */
+    function createUserObj(Cargo $cargo): void
+    {
+
+        $username = $cargo[0];
+        $password = $cargo[1];
+
+        $user = new User($username, $password);
     }
 
 }
