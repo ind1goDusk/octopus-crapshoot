@@ -84,6 +84,7 @@ class Controller
 
     function shipCargo($cargo): void
     {
-        Datalayer::unpackCargo($cargo);
+        $datalayer = new Datalayer();
+        $datalayer->unpackCargo($cargo);
     }
 }
