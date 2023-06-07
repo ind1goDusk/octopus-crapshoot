@@ -75,7 +75,7 @@ $f3 -> route('GET /how-to-play', function(){
     $GLOBALS['controller']->howToPlay();
 });
 //register route
-$f3 -> route('GET /register', function(){
+$f3 -> route('GET|POST /register', function(){
     $GLOBALS['controller']->register();
 });
 
