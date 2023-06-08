@@ -15,12 +15,13 @@ class Datalayer
 
     function __construct()
     {
-        try {
+        try{
             $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-            //echo "connected to database!";
-        } catch (PDOException $e) {
+             echo 'contected to database';
+        } catch (PDOException $e){
             echo $e->getMessage();
         }
+
     }
 
     function unpackCargo(Cargo $cargo): array

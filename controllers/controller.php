@@ -24,6 +24,8 @@ class Controller
     function game(): void
     {
         $view = new Template();
+
+
         echo $view->render('views/game.html');
     }
 
@@ -33,6 +35,44 @@ class Controller
     function login(): void
     {
         $view = new Template();
+
+        $username = "";
+        $password = "";
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            if(isset($_POST['username'])) {
+                $username = $_POST['username'];
+            }
+
+            if(isset($_POST['password'])) {
+                $password = $_POST['password'];
+            }
+
+            if(Validations::validateUsername($username)) {
+                $this->_f3->set('SESSION.username', $username);
+                $this->_f3->set('SESSION.password', $password);
+
+                $GLOBALS['controller']->hiveGet($username);
+                $GLOBALS['controller']->hiveGet($password);
+
+                $userData = array($username, $password);
+
+                $cargo = $GLOBALS['controller']->packCargo($userData);
+                $GLOBALS['controller']->shipCargo($cargo);
+
+            } else {
+                $this->_f3->set('errors[username]', 'Invalid user name!');
+                echo $this->_f3->get('errors[username]');
+            }
+
+            if(empty($this->_f3->get("errors"))) {
+                $this->_f3->reroute('/success');
+            }
+
+        }
+
+
         echo $view->render('views/login.html');
     }
 
@@ -77,6 +117,38 @@ class Controller
     function register(): void
     {
         $view = new Template();
+
+        $username = "";
+        $password = "";
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            //save variables
+            if (isset($_POST['username'])) {
+                $username = $_POST['username'];
+            }
+            if (isset($_POST['password'])) {
+                $password = $_POST['password'];
+            }
+
+
+            //validate
+
+            if(Validations::validateUsername($username)){
+                //construct user object
+                $user = new User($username, $password);
+                $user->setCoins(0);
+
+                //place user into session
+                $this->_f3->set('SESSION.user', $user);
+
+            }
+
+            $this->_f3->reroute('how-to-play');
+
+        }
+
+
         echo $view->render('views/signUp.html');
     }
 
