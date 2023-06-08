@@ -116,9 +116,9 @@ html, body {
 
     padding: 20px 10px;
     border-radius: 5px;
-    transition: .5s;
+   /* transition: .5s;
     color: white;
-    font-size: 20px;
+    font-size: 20px;*/
 }
 
 .form input:focus {
