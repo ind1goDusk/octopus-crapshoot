@@ -144,6 +144,8 @@ class Controller
 
             }
 
+
+
             $this->_f3->reroute('how-to-play');
 
         }
