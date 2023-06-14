@@ -18,19 +18,6 @@ class Validations
             return false;
         } else {
 
-            $sql = "SELECT * FROM user WHERE username = ':username'";
-
-            $statement = $dbh->prepare($sql);
-
-            $statement->bindParam(':username', $username);
-
-            $statement->execute();
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-            if(count($result) != 0){
-                return false;
-            }
-
             return true;
         }
     }

@@ -83,7 +83,10 @@ class Datalayer
             $statement->bindParam(':password', $password);
 
             //execute statement
+
             $statement->execute();
+
+
 
 
     }
@@ -102,9 +105,36 @@ class Datalayer
         $statement->bindParam(':score', $score);
         $statement->bindParam(':username', $username);
 
-        $statement->execute();
+
+            $statement->execute();
+
+
 
     }
+
+    /**
+     * checks if a given username is found in the database
+     * @param $username
+     * @return bool
+     */
+    function checkUnique($username) :bool
+    {
+        $sql = "SELECT * FROM user WHERE username = ':username'";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam(':username', $username);
+
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if(count($result) != 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
 
 }
