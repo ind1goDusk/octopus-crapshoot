@@ -17,7 +17,7 @@ class Datalayer
     {
         try{
             $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-             echo 'contected to database';
+         //    echo 'contected to database';
         } catch (PDOException $e){
             echo $e->getMessage();
         }
@@ -48,5 +48,21 @@ class Datalayer
 
         $user = new User($username, $password);
     }
+
+    /**
+     * tests to see if we can write to database
+     *
+     */
+    function setRow($username, $password){
+        $sql = "insert into users (username, password) values (:username, :password)";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindValue(':username', $username);
+        $statement->bindValue(':password', $password);
+
+        $statement->execute();
+    }
+
 
 }

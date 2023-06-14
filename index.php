@@ -13,6 +13,7 @@ require_once('vendor/autoload.php');
 //Create instance of Controller and Base
 $f3 = Base::instance();
 $controller = new Controller($f3);
+$data = new Datalayer();
 
 //define default route
 $f3 -> route('GET /', function() {
