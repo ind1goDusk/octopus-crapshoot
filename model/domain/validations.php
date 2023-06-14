@@ -15,6 +15,17 @@ class Validations
     static function validateUsername(string $username): bool
     {
         if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username)) {
+
+            $sql = "SELECT * FROM user WHERE username = ':username'";
+
+            $statement = $dbh->prepare($sql);
+
+            $statement->bindParam(':username', $username);
+
+            $table = $statement->execute();
+
+          //  if ()
+
             return false;
         } else {
             return true;

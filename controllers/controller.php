@@ -11,7 +11,7 @@ class Controller
 
     /**
      * This is the constructor for the class.
-     * @param $f3 the base instance of the F3 class
+     * @param $f3. the base instance of the F3 class
      */
     function __construct($f3)
     {
@@ -142,6 +142,8 @@ class Controller
                 //place user into session
                 $this->_f3->set('SESSION.user', $user);
 
+                self::addUser($username, $password);
+
             }
 
 
@@ -169,4 +171,49 @@ class Controller
         $datalayer = new Datalayer();
         $datalayer->unpackCargo($cargo);
     }
+
+    /**
+     * function takes in username and password and creates a new user entry in database
+     * @param $username
+     * @param $password
+     */
+    static function addUser($username, $password)
+    {
+        //check validations
+        if(Validations::validateUsername($username)){
+            //define query
+            $sql = "insert into users(username, password) values (:username, :password)";
+            //prepare statement
+            $statement = $dbh->prepare($sql);
+
+            //bind parameters
+            $statement->bindParam(':username', $username);
+            $statement->bindParam(':password', $password);
+
+            //execute statement
+            $statement->execute();
+        }
+
+    }
+
+    /**
+     * function updates the high score of a specified user
+     * @param $username. the user whose score is being updated
+     * @param $score. the new score to be updated
+     */
+    static function updateScore($username, $score)
+    {
+        $sql = "update users set score = :score where username = :username";
+
+        $statement = $dbh->prepare($sql);
+
+        $statement->bindParam(':score', $score);
+        $statement->bindParam(':username', $username);
+
+        $statement->exeute();
+
+    }
+
+
+
 }
