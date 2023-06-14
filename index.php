@@ -44,10 +44,10 @@ $f3 -> route('GET /how-to-play', function(){
     $GLOBALS['controller']->howToPlay();
 });
 //register route
-$f3 -> route('GET|POST /register', function($datalayer){
+$f3 -> route('GET|POST /register', function(){
 
 
-    $GLOBALS['controller']->register($datalayer);
+    $GLOBALS['controller']->register();
 
 });
 

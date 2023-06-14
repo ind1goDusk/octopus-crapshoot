@@ -5,7 +5,7 @@ body {
 
 }
 .tableContainer{
-    background-image: url("../images/GreenTable.jpg");
+    background-image: url("../images/Green_background_table.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -219,5 +219,54 @@ tr:nth-child(odd).leaderboard {
 .leaderboard tr.winner {
     background-color: Orange;
     font-weight: bold;
+}
+
+/* tutorial styles */
+.htpbody {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.htpcontainer {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #111111;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.htph1{
+    color: green;
+    text-align: center;
+}
+.htph3{
+    color: darkgoldenrod;
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+.warn {
+    color: darkgoldenrod;
+}
+
+.red {
+    color: red;
+}
+.htpbutton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.htpbutton:hover {
+    background-color: green;
 }
 

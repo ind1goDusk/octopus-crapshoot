@@ -122,7 +122,7 @@ class Controller
     /**
      * This method routes to the register view.
      */
-    function register($datalayer): void
+    function register(): void
     {
         $view = new Template();
 

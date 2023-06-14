@@ -74,7 +74,7 @@ class Datalayer
     {
 
             //define query
-            $sql = "insert into users (username, password) values (:username, :password)";
+            $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
             //prepare statement
             $statement = $this->_dbh->prepare($sql);
 
@@ -83,7 +83,7 @@ class Datalayer
             $statement->bindParam(':password', $password);
 
             //execute statement
-            $statement->execute();
+         //   $statement->execute();
 
 
     }
