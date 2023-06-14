@@ -83,7 +83,7 @@ class Datalayer
             $statement->bindParam(':password', $password);
 
             //execute statement
-         //   $statement->execute();
+            $statement->execute();
 
 
     }
