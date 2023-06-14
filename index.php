@@ -8,12 +8,11 @@ error_reporting(E_ALL);
 
 //require autoload
 require_once('vendor/autoload.php');
-
+$datalayer = new Datalayer();
 
 //Create instance of Controller and Base
 $f3 = Base::instance();
 $controller = new Controller($f3);
-$data = new Datalayer();
 
 //define default route
 $f3 -> route('GET /', function() {
@@ -45,10 +44,15 @@ $f3 -> route('GET /how-to-play', function(){
     $GLOBALS['controller']->howToPlay();
 });
 //register route
-$f3 -> route('GET|POST /register', function(){
+$f3 -> route('GET|POST /register', function($datalayer){
 
-    $GLOBALS['controller']->register();
 
+    $GLOBALS['controller']->register($datalayer);
+
+});
+
+$f3->route('GET /leader', function() {
+    $GLOBALS['controller']->leader();
 });
 
 

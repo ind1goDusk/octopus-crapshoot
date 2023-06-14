@@ -15,6 +15,8 @@ class Validations
     static function validateUsername(string $username): bool
     {
         if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username)) {
+            return false;
+        } else {
 
             $sql = "SELECT * FROM user WHERE username = ':username'";
 
@@ -22,12 +24,13 @@ class Validations
 
             $statement->bindParam(':username', $username);
 
-            $table = $statement->execute();
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-          //  if ()
+            if(count($result) != 0){
+                return false;
+            }
 
-            return false;
-        } else {
             return true;
         }
     }

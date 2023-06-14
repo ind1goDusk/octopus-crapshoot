@@ -58,8 +58,8 @@ class Controller
 
                 $userData = array($username, $password);
 
-                $cargo = $GLOBALS['controller']->packCargo($userData);
-                $GLOBALS['controller']->shipCargo($cargo);
+               // $cargo = $GLOBALS['controller']->packCargo($userData);
+                //$GLOBALS['controller']->shipCargo($cargo);
 
             } else {
                 $this->_f3->set('errors[username]', 'Invalid user name!');
@@ -102,6 +102,14 @@ class Controller
         $view = new Template();
         echo $view->render('views/success.html');
     }
+    /**
+     * This method routes to the leaderboard view.
+     */
+    function leader(): void
+    {
+        $view = new Template();
+        echo $view->render('views/leaderboard.html');
+    }
 
     /**
      * This method gets data from the F3 hive.
@@ -114,7 +122,7 @@ class Controller
     /**
      * This method routes to the register view.
      */
-    function register(): void
+    function register($datalayer): void
     {
         $view = new Template();
 
@@ -142,7 +150,8 @@ class Controller
                 //place user into session
                 $this->_f3->set('SESSION.user', $user);
 
-                self::addUser($username, $password);
+                $GLOBALS['datalayer']->addUser($username, $password);
+
 
             }
 
@@ -160,59 +169,19 @@ class Controller
      * This method creates a Cargo object and ships it to datalayer.
      * @param array $data the data in the Cargo.
      */
-    function packCargo(array $data): Cargo
-    {
-        $cargo = new Cargo($data);
-        return $cargo;
-    }
+//    function packCargo(array $data): Cargo
+//    {
+//        $cargo = new Cargo($data);
+//        return $cargo;
+//    }
+//
+//    function shipCargo($cargo): void
+//    {
+//        $datalayer = new Datalayer();
+//        $datalayer->unpackCargo($cargo);
+//    }
 
-    function shipCargo($cargo): void
-    {
-        $datalayer = new Datalayer();
-        $datalayer->unpackCargo($cargo);
-    }
 
-    /**
-     * function takes in username and password and creates a new user entry in database
-     * @param $username
-     * @param $password
-     */
-    static function addUser($username, $password)
-    {
-        //check validations
-        if(Validations::validateUsername($username)){
-            //define query
-            $sql = "insert into users(username, password) values (:username, :password)";
-            //prepare statement
-            $statement = $dbh->prepare($sql);
-
-            //bind parameters
-            $statement->bindParam(':username', $username);
-            $statement->bindParam(':password', $password);
-
-            //execute statement
-            $statement->execute();
-        }
-
-    }
-
-    /**
-     * function updates the high score of a specified user
-     * @param $username. the user whose score is being updated
-     * @param $score. the new score to be updated
-     */
-    static function updateScore($username, $score)
-    {
-        $sql = "update users set score = :score where username = :username";
-
-        $statement = $dbh->prepare($sql);
-
-        $statement->bindParam(':score', $score);
-        $statement->bindParam(':username', $username);
-
-        $statement->exeute();
-
-    }
 
 
 
