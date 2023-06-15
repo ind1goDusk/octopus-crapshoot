@@ -22,7 +22,7 @@
     </div>
 </nav>
 
-<div id="highscore" class="text-left">high score: </div>
+<div id="highscore" class="text-left">High Score: <span id="hs"></span></div>
 <div class="container-fluid tableContainer">
 
         <div class="row text-center">
@@ -30,6 +30,7 @@
             <div class="col-bg-12">
                 <div class=" align-center"><h1 id="banner">Click to Begin!</h1>
                     <div id="score" class="col-bg-12">
+                    </div>
                 </div>
             </div>
 
@@ -59,7 +60,7 @@
                 <div style="text-align: center;">
                     <button class="btn btn-primary" type="button" onclick="rollDice(false)"> Roll Dice!</button><br><br>
                     <button class="btn btn-warning" onclick="rollDice(true)"> Double Down!</button><br><br>
-                    <button class="btn btn-danger" onclick="fold()"> Fold
+                    <button class="btn btn-danger" onclick="ajaxFold()"> Fold
                     </button><br><br>
                     <p id="result"></p>
                 </div>

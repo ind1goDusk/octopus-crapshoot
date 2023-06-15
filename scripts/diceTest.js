@@ -146,6 +146,29 @@ function checkHighScore(score) {
 
     if(score > highScore) {
         highScore = score;
-        highScoreDisplay.innerText = "High Score: " + highScore;
+    }
+    return highScore;
+}
+
+//Ajax High Score Function
+function ajaxFold() {
+    let highscore = checkHighScore(score);
+    ajaxHighScore(score, highscore);
+    scoreDisplay.innerText = "Score: 0";
+    score=0;
+}
+
+//Ajax High Score Function
+function ajaxHighScore(score, highscore) {
+    if (score === 0) {
+        document.getElementById("hs").innerHTML = "0";
+        return;
+    } else {
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+            document.getElementById("hs").innerHTML = this.responseText;
+        }
+        xmlhttp.open("GET", "highscore.php", true);
+        xmlhttp.send();
     }
 }

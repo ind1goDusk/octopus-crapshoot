@@ -55,5 +55,4 @@ $f3->route('GET /leader', function() {
     $GLOBALS['controller']->leader();
 });
 
-
 $f3->run();
