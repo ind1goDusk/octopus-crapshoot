@@ -40,5 +40,6 @@ DRY is practiced throughout program.
 Adequate effort for a final project in a full-stack course was applied.
 
 ## UML Diagram
+![UML Class Diagram](/images/uml_diagram.png "UML Diagram")
 
 
