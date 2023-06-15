@@ -5,11 +5,11 @@ let tag = document.getElementById("banner");
 let scoreDisplay = document.getElementById("score");
 let highScoreDisplay = document.getElementById("highscore");
 
-var dice1 = document.getElementById("dice1");
-var dice2 = document.getElementById("dice2");
-var sides1 = dice1.getElementsByClassName("side");
-var sides2 = dice2.getElementsByClassName("side");
-var result = document.getElementById("result");
+let dice1 = document.getElementById("dice1");
+let dice2 = document.getElementById("dice2");
+let sides1 = dice1.getElementsByClassName("side");
+let sides2 = dice2.getElementsByClassName("side");
+let result = document.getElementById("result");
 
 
 
@@ -49,7 +49,10 @@ function rollDice(){
 }
 */
 
-
+/**
+ * rolls a pair of simulated dice and tracks the player's score
+ * @param doubleDown boolean to see if the player doubled down. mark true if so, false for regular roll.
+ */
 function rollDice(doubleDown) {
     //Set Score Display to Empty String
     tag.innerText = "";
