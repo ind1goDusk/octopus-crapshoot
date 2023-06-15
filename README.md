@@ -9,6 +9,14 @@ The game simulates a pair of dice, giving the user a higher score
 the more the dice are rolled. But if the dice roll the number 7, the game
 is lost and all the money earned along with it. 
 
+when you click *Roll Dice*, the pair of dice generate a random number using the rollDice() function in
+diceTest.js. if that number is 7 or 11, it triggers a fail state and clears your score.
+when you click *Double Down*, it calls rollDice(true) which tells the function to award more points for success, 
+but also adds the numbers 2 and 12 as potential failures. double risk, double reward. 
+
+You can log in and register a new account by clicking on *account* on the navbar, which saves your username to 
+the database. 
+
 
 
 ## Requirements:
@@ -25,9 +33,10 @@ is lost and all the money earned along with it.
 
 Requirements 1-3 are all met. 
 
-Data can be added and viewed using prepared statements in datalayer.php
+Data can be added and viewed using prepared statements in datalayer.php. It cannot be modified because we 
+tried to impliment AJAX but unfortunately ran out of time
 
-Our team has, at the time of writing this readme, 73 commits between our entire team. 
+Our team has, at the time of writing this readme, 73 commits between our entire team.  
 
 As seen by our UML diagram, OOP is used while utilizing multiple classes.
 
