@@ -1,5 +1,5 @@
 # octopus-crapshoot
-Authors: David Kurilla, Dahlia Adams, Muhammad Shahid
+**Authors:** David Kurilla, Dahlia Adams, Muhammad Shahid
 
 
 This program runs a browser-based game of crapshoot: a game
@@ -11,7 +11,7 @@ is lost and all the money earned along with it.
 
 
 
-requirements:
+## Requirements:
 * 1: spearates all database / business logic using MVC pattern
 * 2: Routes all URLs and leverages a templating language using the Fat-Free framework.
 * 3: Has a clearly defined database layer using PDO and prepared statements to prevent SQL injection. 
@@ -23,19 +23,22 @@ requirements:
 * 9: All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
 * 10: Submission shows adequate effort for a final project in a full-stack web development course.
 
-requirements 1-3 are all met. 
+Requirements 1-3 are all met. 
 
-data can be added and viewed using prepared statements in datalayer.php
+Data can be added and viewed using prepared statements in datalayer.php
 
-our team has, at the time of writing this readme, 73 commits between our entire team. 
+Our team has, at the time of writing this readme, 73 commits between our entire team. 
 
-as seen by our UML diagram, OOP is used while utilizing multiple classes.
+As seen by our UML diagram, OOP is used while utilizing multiple classes.
 
-all of our functions are clearly documented throughout project
+All of our functions are clearly documented throughout project.
 
-server-side validation is fully implemented in validations.php file
+Server-side validation is fully implemented in validations.php file.
 
-DRY is practiced throughout program 
+DRY is practiced throughout program.
 
-adequate effort for a final project in a full-stack course was applied.
+Adequate effort for a final project in a full-stack course was applied.
+
+## UML Diagram
+
 
